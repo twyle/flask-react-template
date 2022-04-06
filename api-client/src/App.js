@@ -30,6 +30,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>The current time is {currentTime}</p>
       </header>
     </div>
   );
