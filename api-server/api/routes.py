@@ -15,7 +15,7 @@ def api_home():
 def get_time():
     return {'time': datetime.utcnow().strftime("%m/%d/%Y, %H:%M:%S")}
 
+
 @app.route('/')
 def index():
     return app.send_static_file('index.html')
-    #return 'Hello'
