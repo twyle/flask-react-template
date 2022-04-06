@@ -24,7 +24,7 @@
 #   * peter-evans/commit-comment@v1: adds message to commit
 # **************************************************************************************************************** #
 
-name: Flask Back-end Staging Build
+name: Flask React Staging Build
 
 on:
   push:

@@ -24,7 +24,7 @@
 #   * peter-evans/commit-comment@v1: adds message to commit
 # **************************************************************************************************************** #
 
-name: Flask Back-end Production Build
+name: Flask React Production Build
 
 on:
   push:

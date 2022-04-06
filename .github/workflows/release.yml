@@ -1,4 +1,4 @@
-name: Github tag test
+name: Flask React Release Build
 on:
   push:
     tags:
