@@ -101,6 +101,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "${{ env.APP_NAME }}-dev" #Must be unique in Heroku
           heroku_email: "${{ secrets.HEROKU_EMAIL }}"
+          appdir: "api-server"
         env:
           HD_FLASK_ENV: ${{secrets.FLASK_ENV}}
           HD_SECRET_KEY: ${{secrets.SECRET_KEY}}
