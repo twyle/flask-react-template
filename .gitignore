@@ -127,3 +127,27 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+api-client/node_modules/
+api-client/.pnp
+api-client/.pnp.js
+
+# testing
+api-client/coverage/
+
+# production
+api-client/build/
+
+# misc
+api-client/.DS_Store
+api-client/.env.local
+api-client/.env.development.local
+api-client/.env.test.local
+api-client/.env.production.local
+
+api-client/npm-debug.log*
+api-client/yarn-debug.log*
+api-client/yarn-error.log*
