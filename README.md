@@ -1,5 +1,5 @@
 # Flask React App Template
-> This is a template for setting up a Web App built with flask and react and deployed on Heroku. test
+> This is a template for setting up a Web App built with flask and react and deployed on Heroku. 
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
@@ -87,18 +87,27 @@ make test
 
 ## Release History
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
+## v0.2.0 (2022-04-06)
+
+### Feat
+
+- added the front-end.
+
+## v0.1.0 (2022-04-06)
+
+### Fix
+
+- fixed the tag versioning.
+- fixed the workflow deployments.
+- added the app-dir directive.
+
+### Feat
+
+- added new divide functionality
+- added the header photo.
+- renamed the workflows.
+- initial commit.
+
 
 ## Meta
 

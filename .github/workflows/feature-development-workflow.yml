@@ -32,8 +32,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  Build:
+  Build-Frontend:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Development Code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          cd api-client
+          npm install
+
+      - name: Build
+        run: |
+          cd api-client
+          npm run build 
+
+      - name: Update Backend
+        run: |
+          # cd api-server/api && mkdir static
+          # cd ../..
+          dir
+          cp -r api-client/build/* api-server/api/static/
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Copied the build folder into the static folder.
+
+  Build-Backend:
+    runs-on: ubuntu-latest
+    needs: [Build-Frontend]
 
     steps:
 
