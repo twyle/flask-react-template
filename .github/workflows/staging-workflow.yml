@@ -124,7 +124,7 @@ jobs:
 
   DeployDev:
     name: Deploy to Dev 
-    needs: [Build]
+    needs: [Build-Backend]
     runs-on: ubuntu-latest
     environment: 
       name: Development
