@@ -151,3 +151,5 @@ api-client/.env.production.local
 api-client/npm-debug.log*
 api-client/yarn-debug.log*
 api-client/yarn-error.log*
+
+api-server/api/static
