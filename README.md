@@ -1,5 +1,5 @@
 # Flask React App Template
-> This is a template for setting up a Web App built with flask and react and deployed on Heroku.
+> This is a template for setting up a Web App built with flask and react and deployed on Heroku. 
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
