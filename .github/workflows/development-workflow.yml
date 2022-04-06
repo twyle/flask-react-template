@@ -24,7 +24,7 @@
 #   * peter-evans/commit-comment@v1: adds message to commit
 # **************************************************************************************************************** #
 
-name: Flask API Development Build
+name: Flask React Development Build
 
 on:
   pull_request:
