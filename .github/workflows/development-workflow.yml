@@ -63,9 +63,9 @@ jobs:
 
       - name: Update Backend
         run: |
-          cd api-server/api && mkdir static
-          cd ../..
-          dir
+          #cd api-server/api && mkdir static
+          #cd ../..
+          #dir
           cp -r api-client/build/* api-server/api/static/
 
       - uses: stefanzweifel/git-auto-commit-action@v4
