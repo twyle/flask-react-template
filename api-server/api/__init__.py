@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 from api.config import DevelopmentConfig, ProductionConfig
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/')
 CORS(app)
 
 if os.environ['FLASK_ENV'] == 'production':
