@@ -1,7 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect} from 'react'
+import axios from "axios";
 
 function App() {
+
+  const [currentTime, setCurrentTime] = useState(0)
+  useEffect(() => {
+    const fetchTime = async () => {
+      const resp = await axios.get('http://127.0.0.1:5000/api/time');
+      console.log(resp.data.time)
+      setCurrentTime(resp.data.time);
+    };
+    fetchTime();
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">

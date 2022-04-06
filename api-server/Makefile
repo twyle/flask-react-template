@@ -16,7 +16,7 @@ lint: sort
 
 test: lint
 	@echo "\n${BLUE} Running the tests..."
-	@SECRET_KEY=secret_key FLASK_ENV=development venv/bin/python3 -m  pytest
+	@SECRET_KEY=secret_key FLASK_ENV=development python -m  pytest
 
 update-pip:
 	@pip install --upgrade pip
