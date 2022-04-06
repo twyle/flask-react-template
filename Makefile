@@ -45,4 +45,4 @@ release:
 clean:
 	@cd ${CLIENT} && rm -rf build 
 	@rm -rf .pytest_cache
-	@cd ${SERVER} && rm -rf .pytest_cache .coverage coverage.xml __pycache__ ${PACKAGE}/__pycache__ ${TEST}/__pycache__ api/__pycache__ api/static 
+	@cd ${SERVER} && rm -rf .pytest_cache .coverage coverage.xml __pycache__ ${PACKAGE}/__pycache__ ${TEST}/__pycache__ api/__pycache__ 
