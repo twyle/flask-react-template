@@ -61,7 +61,7 @@ jobs:
       - name: Update Backend
         run: |
           cd api-server/api && mkdir static
-          cd ..
+          cd ../..
           dir
           cp -r api-client/build/* api-server/api/static/
 
