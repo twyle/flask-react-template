@@ -3,9 +3,10 @@ from datetime import datetime
 
 from api import app
 
+from flask import render_template
+
 
 @app.route('/api')
-@app.route('/')
 def api_home():
     return f"Hello from flask api! The environment is {os.environ['FLASK_ENV']}"
 
@@ -13,3 +14,8 @@ def api_home():
 @app.route('/api/time', methods=['GET'])
 def get_time():
     return {'time': datetime.utcnow().strftime("%m/%d/%Y, %H:%M:%S")}
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+    #return 'Hello'
