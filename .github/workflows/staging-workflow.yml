@@ -37,9 +37,46 @@ env:
   APP_NAME: flask-react-template
 
 jobs:
-  Build:
-
+  Build-Frontend:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Development Code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          cd api-client
+          npm install
+
+      - name: Build
+        run: |
+          cd api-client
+          npm run build 
+
+      - name: Update Backend
+        run: |
+          #cd api-server/api && mkdir static
+          #cd ../..
+          #dir
+          cp -r api-client/build/* api-server/api/static/
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Copied the build folder into the static folder.
+
+  Build-Backend:
+    runs-on: ubuntu-latest
+    needs: [Build-Frontend]
 
     steps:
 
@@ -57,22 +94,22 @@ jobs:
         if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Sort Project dependencies
-      run: |
-        cd api-server
-        isort .
+    # - name: Sort Project dependencies
+    #   run: |
+    #     cd api-server
+    #     isort .
 
-    - name: commit isort changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add -A && git diff-index --cached --quiet HEAD || git commit -m 'isort'
+    # - name: commit isort changes
+    #   run: |
+    #     git config --local user.email "action@github.com"
+    #     git config --local user.name "GitHub Action"
+    #     git add -A && git diff-index --cached --quiet HEAD || git commit -m 'isort'
 
-    - name: push isort changes
-      uses: ad-m/github-push-action@v0.5.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+    # - name: push isort changes
+    #   uses: ad-m/github-push-action@v0.5.0
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     branch: ${{ github.ref }}
 
     - name: Run the linters
       run: |
