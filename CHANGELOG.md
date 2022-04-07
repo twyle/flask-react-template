@@ -1,3 +1,15 @@
+## v0.5.2 (2022-04-07)
+
+### Fix
+
+- using the changelog.
+
+## v0.5.1 (2022-04-07)
+
+### Fix
+
+- fixed the release workflow.
+
 ## v0.5.0 (2022-04-07)
 
 ### Feat
