@@ -46,9 +46,9 @@ run: build
 
 release:
 	@echo "\n${BLUE} Bumping the current version..."
-	@cd ${SERVER} && cz bump
+	@cz bump
 	@echo "\n${BLUE} Updating the change log..."
-	@cd ${SERVER} && cz changelog
+	@cz changelog
 
 clean:
 	@cd ${CLIENT} && rm -rf build 
