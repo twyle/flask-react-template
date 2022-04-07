@@ -4,7 +4,6 @@ on:
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
     - cron: "*/5 * * * *"
-  branches: [development, staging, production, release]
 
 jobs:
   Build-Frontend:
