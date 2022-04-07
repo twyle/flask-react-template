@@ -3,7 +3,7 @@ name: Code Quality
 on:
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
-    - cron: "*/5 * * * *"
+    - cron: "*/60 */3 * * *"
 
 jobs:
   Build-Frontend:
