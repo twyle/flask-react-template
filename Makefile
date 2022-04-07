@@ -7,7 +7,7 @@ all: run
 
 sort: 
 	@echo "\n${BLUE} Running isort..."
-	@isort ${SERVER}
+	@cd api-server && isort .
 
 lint: 
 	@echo "\n${BLUE} Running the flake8 linter..."
@@ -17,7 +17,15 @@ lint:
 
 test: 
 	@echo "\n${BLUE} Running the tests..."
-	@SECRET_KEY=secret_key FLASK_ENV=development python -m  pytest 
+	@cd ${SERVER} && SECRET_KEY=secret_key FLASK_ENV=development python -m  pytest 
+
+coverage:
+	@echo "\n${BLUE} Running the coverage..."
+	@cd ${SERVER} && SECRET_KEY=secret_key FLASK_ENV=development coverage run -m pytest
+
+coverage-report: coverage
+	@echo "\n${BLUE} Generating the coverage report..."
+	@cd ${SERVER} && coverage report -m
 
 update-pip:
 	@pip install --upgrade pip

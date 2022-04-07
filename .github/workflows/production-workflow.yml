@@ -94,23 +94,6 @@ jobs:
         if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    # - name: Sort Project dependencies
-    #   run: |
-    #     cd api-server
-    #     isort .
-
-    # - name: commit isort changes
-    #   run: |
-    #     git config --local user.email "action@github.com"
-    #     git config --local user.name "GitHub Action"
-    #     git add -A && git diff-index --cached --quiet HEAD || git commit -m 'isort'
-
-    # - name: push isort changes
-    #   uses: ad-m/github-push-action@v0.5.0
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     branch: ${{ github.ref }}
-
     - name: Run the linters
       run: |
         cd api-server
@@ -149,15 +132,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: Production
-      url: 'https://${{env.APP_NAME}}-production.herokuapp.com/'
+      url: 'https://${{env.APP_NAME}}-prod.herokuapp.com/'
     steps:
       - name: Deploy
-        run: echo I am deploying ${{ env.APP_NAME }} at https://${{env.APP_NAME}}-production.herokuapp.com/
+        run: echo I am deploying ${{ env.APP_NAME }} at https://${{env.APP_NAME}}-prod.herokuapp.com/
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "${{ env.APP_NAME }}-production" #Must be unique in Heroku
+          heroku_app_name: "${{ env.APP_NAME }}-prod" #Must be unique in Heroku
           heroku_email: "${{ secrets.HEROKU_EMAIL }}"
           appdir: "api-server"
         env:

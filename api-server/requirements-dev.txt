@@ -5,3 +5,4 @@ pylint==2.13.4
 isort==5.10.1
 pre-commit==2.18.1
 commitizen==2.23.0
+coverage==6.3.2
